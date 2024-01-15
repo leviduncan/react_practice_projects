@@ -1,0 +1,43 @@
+.menu {
+    background: #232323;
+    color: #fff;
+    width: 7%;
+    padding: 20px;
+}
+
+.menu ul li {
+    list-style: none;
+    text-align: center;
+    font-size: .8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+        color: orange;
+    }
+}
+
+.menu .icon {
+    width: 28px;
+    height: 28px;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        width: 100%;
+    }
+
+    .menu ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
