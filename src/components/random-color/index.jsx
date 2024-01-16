@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./style.css"
 
 const RandomColor = () => {
     const [typeOfColor, setTypeOfColor] = useState('hex')
-    const [color, setColor] = useState('#ffffff')
+    const [color, setColor] = useState('#000000')
 
     const randomColorUtility = (length) => {
         return Math.floor(Math.random() * length)
@@ -24,8 +24,13 @@ const RandomColor = () => {
         const b = randomColorUtility(256)
 
         console.log(`rgb${r},${g},${b}`)
-        setColor(`${r},${g},${b}`)
+        setColor(`rgb(${r},${g},${b})`)
     }
+
+    useEffect(()=>{
+        if(typeOfColor === 'rgb') handleGenerateRandomRgbColor()
+        else handleGenerateRandomHexColor()
+    },[typeOfColor])
 
     return (
         <div className="randomColor" style={{ width: '100vw', height: '100vh', backgroundColor: color }}>
@@ -34,18 +39,19 @@ const RandomColor = () => {
                 <button className="btn" onClick={() => setTypeOfColor('hex')}>Generate HEX Color</button>
                 <button className="btn" onClick={() => setTypeOfColor('rgb')}>Generate RGB Color</button>
                 <button className="btn" onClick={typeOfColor === 'hex' ? handleGenerateRandomHexColor : handleGenerateRandomRgbColor}>Generate Random Color</button>
-                
+
                 <div
                     style={{
                         display: 'flex',
                         justifyContent: 'flexStart',
-                        alignItems: 'center',
+                        alignItems: 'flexStart',
+                        flexDirection: 'column',
                         color: '#fff',
                         fontSize: '60px',
                         marginTop: '50px'
                     }}
                 >
-                    <h3>{ typeOfColor }</h3>
+                    <h3>{ typeOfColor === 'rgb' ? 'RGB Color' : 'HEX Color'}</h3>
                     <h2>{ color }</h2>
                 </div>
             </div>
