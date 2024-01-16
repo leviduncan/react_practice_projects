@@ -19,7 +19,12 @@ const RandomColor = () => {
         setColor(hexColor)
     }
     const handleGenerateRandomRgbColor = () => {
+        const r = randomColorUtility(256)
+        const g = randomColorUtility(256)
+        const b = randomColorUtility(256)
 
+        console.log(`rgb${r},${g},${b}`)
+        setColor(`${r},${g},${b}`)
     }
 
     return (
@@ -29,6 +34,20 @@ const RandomColor = () => {
                 <button className="btn" onClick={() => setTypeOfColor('hex')}>Generate HEX Color</button>
                 <button className="btn" onClick={() => setTypeOfColor('rgb')}>Generate RGB Color</button>
                 <button className="btn" onClick={typeOfColor === 'hex' ? handleGenerateRandomHexColor : handleGenerateRandomRgbColor}>Generate Random Color</button>
+
+                <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'flexStart',
+                        alignItems: 'center',
+                        color: '#fff',
+                        fontSize: '60px',
+                        marginTop: '50px'
+                    }}
+                >
+                    <h3>{ typeOfColor }</h3>
+                    <h2>{ color }</h2>
+                </div>
             </div>
         </div>
     )
