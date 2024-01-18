@@ -17,6 +17,7 @@ const StarRating = ({noOfStars = 5}) => {
         setHover(rating)
     }
 
+    
     return (
         <div className="container">
             <div className="star-rating">
