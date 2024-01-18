@@ -34,7 +34,7 @@
       max-width: 1200px;
       width: 100%;
       padding: 20px;
-      margin: auto;
+      margin: 0 auto;
   }
 
   .container-fluid {
@@ -81,6 +81,15 @@
   }
  
   
+  .star-rating {
+    .active {
+      color: #fff700;
+    }
+    .inactive {
+      
+    }
+  }
+
   @media (max-width: 768px) {
     .layout {
         display: flex;

@@ -3,7 +3,7 @@ import "./style.css"
 
 const RandomColor = () => {
     const [typeOfColor, setTypeOfColor] = useState('hex')
-    const [color, setColor] = useState('#000000')
+    const [color, setColor] = useState('#ffffff')
 
     const randomColorUtility = (length) => {
         return Math.floor(Math.random() * length)
@@ -40,7 +40,7 @@ const RandomColor = () => {
                 <button className="btn" onClick={() => setTypeOfColor('rgb')}>Generate RGB Color</button>
                 <button className="btn" onClick={typeOfColor === 'hex' ? handleGenerateRandomHexColor : handleGenerateRandomRgbColor}>Generate Random Color</button>
 
-                <div
+                <div className="labels"
                     style={{
                         display: 'flex',
                         justifyContent: 'flexStart',
